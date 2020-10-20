@@ -1,16 +1,21 @@
+# If new shells don't load this config, you may need
+# to add them to `.bash_profile` or `.bashrc`.
+# Run `echo $0` to see what you're using.
+# Run `source ~/.zshrc` to reload config.
+
 # Config
 export VISUAL=atom
 export EDITOR="$VISUAL"
 export GIT_EDITOR="atom --wait"
 
 # Node Version Manager (NVM)
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Ruby Version Manager (RVM)
 # Load RVM into a shell session as a function
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # General
 alias dev="cd ~/Dev"
@@ -75,12 +80,20 @@ function gitdeleteall {
   git branch -D `git branch | grep "$1"`
 }
 
-# status https://google.com
+# Take a screenshot every N seconds
+# Example: creep 20
+function creep() {
+    while :; do; echo "📸" $(date +%H:%M:%S); screencapture -x ~/Screenshots/wes/$(date +%s).png; sleep $1; done
+}
+
+# Check status for a URL
+# Example: status https://google.com
 function status () {
   curl -s -o /dev/null -w "%{http_code}\n" $1
 }
 
-# statusAll file.csv
+# Check status for a CSV of URLs
+# Example: statusAll file.csv
 function statusAll () {
   while IFS=, read -r col1 col2
   do
@@ -89,7 +102,8 @@ function statusAll () {
   done < $1
 }
 
-# parseCSV file.csv
+# Read out CSV data
+# Example: parseCSV file.csv
 function parseCSV () {
   while IFS=, read -r col1 col2
   do

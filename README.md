@@ -25,16 +25,14 @@ Optional extras:
 
 ### Hyper
 1. Hyper > Preferences
-2. Paste [config](./config/hyper) contents
+2. Paste [.hyper](./.hyper) contents
 3. Packages > Install CLI
 4. Restart Hyper (if plugins aren't working)
 
-### Bash
-1. Open profile: `atom ~/.bash_profile`
-2. Paste [bash profile](./config/bashprofile) contents
-3. Reload profile: `source ~/.bash_profile`
-
-If new shells don't load bash profile, you may need to add `. ~/.bash_profile` to `~/.zshrc` and/or `~/.bashrc`. Run `echo $0` to see which bash interface you're running.
+### ZSH
+1. Open: `atom ~/.zshrc`
+2. Paste [.zshrc](./.zshrc) contents
+3. Reload: `source ~/.zshrc`
 
 ### Homebrew
 1. Install Xcode (App Store > Xcode)
@@ -43,10 +41,8 @@ If new shells don't load bash profile, you may need to add `. ~/.bash_profile` t
 
 ### Git
 1. Run: `brew install git`
-2. Open config: `atom ~/.gitconfig`
-3. Paste git config contents
-4. Generate an [access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
-5. `git clone` a repo and sign in
+2. Generate an [access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
+3. `git clone` a repo and sign in
 
 ### ...and, all done! 🤞🎉
 
@@ -55,3 +51,4 @@ If new shells don't load bash profile, you may need to add `. ~/.bash_profile` t
 - https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/set-up-git
 - https://deepu.tech/configure-a-beautiful-terminal-on-unix
 - https://uses.tech
+- https://github.com/wesbos/dotfiles
