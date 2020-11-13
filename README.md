@@ -1,6 +1,6 @@
 # New computer setup
 
-## Install basics
+## Basics
 - [ ] Chrome
 - [ ] Figma
 - [ ] Spotify
@@ -9,15 +9,13 @@
 - [ ] Xcode (App Store > Xcode)
 - [ ] [Atom](https://atom.io) (see below)
 - [ ] [Hyper](https://hyper.is) ([config](./config/hyper))
-- [ ] [Node JS](https://nodejs.org) (comes with [npm](https://www.npmjs.com/get-npm))
-- [ ] [Yarn](https://yarnpkg.com/) (`npm install -g yarn`)
-
-Optional extras:
-- [ ] [Node Version Manager](https://github.com/nvm-sh/nvm#installing-and-updating)
-- [ ] [Ruby Version Manager](https://rvm.io)
-- [ ] React Developer Tools (browser ext)
 
 ## Next steps
+
+### Package managers
+1. Install [Node JS](https://nodejs.org) (comes with [npm](https://www.npmjs.com/get-npm))
+2. Set permissions: `sudo chown -R $USER /usr/local/lib/node_modules`
+3. Install [Yarn](https://yarnpkg.com/) (`npm install -g yarn`)
 
 ### Atom
 1. Atom > Install Shell Commands (for `atom` instead of `open`)
@@ -44,7 +42,15 @@ Optional extras:
 2. Generate an [access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
 3. `git clone` a repo and sign in
 
+### Vercel
+1. Run: `yarn global add vercel`
+
 ### ...and, all done! 🤞🎉
+
+## Optional extras
+- [ ] [Node Version Manager](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [ ] [Ruby Version Manager](https://rvm.io)
+- [ ] React Developer Tools (browser ext)
 
 ## Reference
 - https://github.com/nicolashery/mac-dev-setup
@@ -52,3 +58,4 @@ Optional extras:
 - https://deepu.tech/configure-a-beautiful-terminal-on-unix
 - https://uses.tech
 - https://github.com/wesbos/dotfiles
+- https://flaviocopes.com/npm-fix-missing-write-access-error
