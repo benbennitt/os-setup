@@ -1,30 +1,16 @@
-# Run `echo $0` to see what shell you're using.
+# See bottom of file for setting up ZSH
 
-# If new shells don't load this config, you may need to add them
-# to `.bash_profile` or `.bashrc` (or change default shell to zsh)
-
-# Run `source ~/.zprofile` to reload this config.
-
-# Config
+# CONFIG
 export EDITOR="code -w"
 
-# Node Version Manager (NVM)
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Ruby Version Manager (RVM)
-# Load RVM into a shell session as a function
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# General
+# GENERAL
 alias dev="cd ~/Dev"
-alias gobash="atom ~/.bash_profile"
-alias reloadbash="source ~/.bash_profile"
+alias config="code ~/.zprofile"
+alias reloadconfig="source ~/.zprofile"
 alias fixcam="sudo killall VDCAssistant;sudo killall AppleCameraAssistant"
 alias fixnotes="sudo killall NotificationCenter"
 
-# Git
+# GIT
 alias gaa="git add -A"
 alias gs="git status -b -s"
 alias gl="git log --pretty=\"%h | %ad | %an | %s\" --date=short"
@@ -80,10 +66,11 @@ function gitdeleteall {
   git branch -D `git branch | grep "$1"`
 }
 
+#::::::::::: UTILITIES :::::::::::
 # Take a screenshot every N seconds
-# Example: creep 20
-function creep() {
-    while :; do; echo "📸" $(date +%H:%M:%S); screencapture -x ~/Screenshots/wes/$(date +%s).png; sleep $1; done
+# Example: timelapse 20
+function timelapse() {
+  while :; do; echo "📸" $(date +%H:%M:%S); screencapture -x ~/Screenshots/timelapse/$(date +%s).png; sleep $1; done
 }
 
 # Check status for a URL
@@ -110,3 +97,25 @@ function parseCSV () {
     echo "Ouput: $col1|$col2"
   done < $1
 }
+
+#::::::::::: SETUP :::::::::::
+# 1. Create: `touch ~/.zprofile`
+# 2. Open: `open ~/.zprofile`
+# 3. Paste [.zprofile](./.zprofile) contents
+# 4. Reload: `source ~/.zprofile`
+
+# Run `echo $0` to see what shell you're using.
+# If new shells don't load this config, you may need to add them
+# to `.bash_profile` or `.bashrc` (or change default shell to zsh)
+# Run `source ~/.zprofile` to reload this config.
+
+#::::::::::: OTHER :::::::::::
+# Node Version Manager (NVM)
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Ruby Version Manager (RVM)
+# Load RVM into a shell session as a function
+# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
