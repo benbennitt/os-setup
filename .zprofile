@@ -1,12 +1,12 @@
-# If new shells don't load this config, you may need
-# to add them to `.bash_profile` or `.bashrc`.
-# Run `echo $0` to see what you're using.
-# Run `source ~/.zshrc` to reload config.
+# Run `echo $0` to see what shell you're using.
+
+# If new shells don't load this config, you may need to add them
+# to `.bash_profile` or `.bashrc` (or change default shell to zsh)
+
+# Run `source ~/.zprofile` to reload this config.
 
 # Config
-export VISUAL=atom
-export EDITOR="$VISUAL"
-export GIT_EDITOR="atom --wait"
+export EDITOR="code -w"
 
 # Node Version Manager (NVM)
 # export NVM_DIR="$HOME/.nvm"
