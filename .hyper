@@ -1,3 +1,10 @@
+/*
+  1. Hyper > Preferences
+  2. Paste this file
+  3. Packages > Install CLI
+  4. Restart Hyper (if plugins aren't working)
+*/
+
 module.exports = {
   config: {
     // default font size in pixels for all tabs
