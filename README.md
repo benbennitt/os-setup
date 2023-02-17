@@ -9,7 +9,7 @@
 - [ ] [Yarn](https://yarnpkg.com) `curl -o- -L https://yarnpkg.com/install.sh | bash`
 - [ ] [Homebrew](https://brew.sh) (for later use, e.g. `brew upgrade yarn`)
 - [ ] [Git access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
-- [ ] `git clone` a repo and sign in
+- [ ] `git clone` a repo and sign in using the token as the password
 
 ...and all done! 🤞🎉
 
