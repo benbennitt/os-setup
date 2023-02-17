@@ -1,56 +1,23 @@
 # New computer setup
 
-## Basics
-- [ ] Chrome
-- [ ] Figma
-- [ ] Spotify
-- [ ] Numi
-- [ ] 1Password
-- [ ] Xcode (App Store > Xcode)
-- [ ] [Atom](https://atom.io) (see below)
-- [ ] [Hyper](https://hyper.is) ([config](./config/hyper))
+## Installs
+- [ ] ZSH (see [.zprofile](.zprofile))
+- [ ] [VS Code](https://code.visualstudio.com)
+- [ ] Xcode (App Store)
+- [ ] [Xcode dev tools](https://developer.apple.com/download/more) `xcode-select --install` (includes `git`)
+- [ ] [Yarn](https://yarnpkg.com) `curl -o- -L https://yarnpkg.com/install.sh | bash`
+- [ ] [Homebrew](https://brew.sh) (for later use, e.g. `brew upgrade yarn`)
+- [ ] [Hyper](https://hyper.is) (see [.hyper](.hyper))
+- [ ] [Git access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
+- [ ] `git clone` a repo and sign in
 
-## Next steps
-
-### Package managers
-1. Install [Node JS](https://nodejs.org) (comes with [npm](https://www.npmjs.com/get-npm))
-2. Set permissions: `sudo chown -R $USER /usr/local/lib/node_modules`
-3. Install [Yarn](https://yarnpkg.com/) (`npm install -g yarn`)
-
-### Atom
-1. Atom > Install Shell Commands (for `atom` instead of `open`)
-2. Atom > Preferences > Install: [Kite](https://www.kite.com)
-
-### Hyper
-1. Hyper > Preferences
-2. Paste [.hyper](./.hyper) contents
-3. Packages > Install CLI
-4. Restart Hyper (if plugins aren't working)
-
-### ZSH
-1. Open: `atom ~/.zshrc`
-2. Paste [.zshrc](./.zshrc) contents
-3. Reload: `source ~/.zshrc`
-
-### Homebrew
-1. Install Xcode (App Store > Xcode)
-2. Install developer tools ([downloads](https://developer.apple.com/download/more/) or `xcode-select --install`)
-3. Install [Homebrew](https://brew.sh)
-
-### Git
-1. Run: `brew install git`
-2. Generate an [access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
-3. `git clone` a repo and sign in
-
-### Vercel
-1. Run: `yarn global add vercel`
-
-### ...and, all done! 🤞🎉
+...and all done! 🤞🎉
 
 ## Optional extras
+- [ ] [Vercel CLI](https://vercel.com) `yarn global add vercel`
 - [ ] [Node Version Manager](https://github.com/nvm-sh/nvm#installing-and-updating)
 - [ ] [Ruby Version Manager](https://rvm.io)
-- [ ] React Developer Tools (browser ext)
+- [ ] [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 
 ## Reference
 - https://github.com/nicolashery/mac-dev-setup
