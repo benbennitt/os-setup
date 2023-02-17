@@ -2,13 +2,13 @@
 
 # CONFIG
 export EDITOR="code -w"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 
 # GENERAL
 alias dev="cd ~/Dev"
-alias config="code ~/.zprofile"
-alias reloadconfig="source ~/.zprofile"
-alias fixcam="sudo killall VDCAssistant;sudo killall AppleCameraAssistant"
-alias fixnotes="sudo killall NotificationCenter"
+alias zs="code ~/.zshrc"
+alias reloadzs="source ~/.zshrc"
+alias c="code ."
 
 # GIT
 alias gaa="git add -A"
@@ -99,17 +99,22 @@ function parseCSV () {
 }
 
 #::::::::::: SETUP :::::::::::
-# 1. Create: `touch ~/.zprofile`
-# 2. Open: `open ~/.zprofile`
-# 3. Paste [.zprofile](./.zprofile) contents
-# 4. Reload: `source ~/.zprofile`
+# 1. Create: `touch ~/.zshrc`
+# 2. Open: `open ~/.zshrc`
+# 3. Paste [.zshrc](./.zshrc) contents
+# 4. Reload: `source ~/.zshrc`
 
-# Run `echo $0` to see what shell you're using.
+# Run `echo $0` to see what shell you're using (should see: /bin/zsh)
+# ~/.zshenv is sourced for all new terminal sessions
+# ~/.zshrc is only sourced for interactive sessions
+# ~/.zprofile is only sourced when zsh is run as login shell, e.g. when logging in on the console or via SSH
 # If new shells don't load this config, you may need to add them
 # to `.bash_profile` or `.bashrc` (or change default shell to zsh)
-# Run `source ~/.zprofile` to reload this config.
 
-#::::::::::: OTHER :::::::::::
+#::::::::::: LEGACY :::::::::::
+# alias fixcam="sudo killall VDCAssistant;sudo killall AppleCameraAssistant"
+# alias fixnotis="sudo killall NotificationCenter"
+
 # Node Version Manager (NVM)
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
