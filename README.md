@@ -1,13 +1,13 @@
 # New computer setup
 
 ## Installs
-- [ ] ZSH (see [.zprofile](.zprofile))
+- [ ] [Hyper](https://hyper.is) (see [.hyper](.hyper))
 - [ ] [VS Code](https://code.visualstudio.com)
+- [ ] ZSH (see [.zprofile](.zprofile))
 - [ ] Xcode (App Store)
 - [ ] [Xcode dev tools](https://developer.apple.com/download/more) `xcode-select --install` (includes `git`)
 - [ ] [Yarn](https://yarnpkg.com) `curl -o- -L https://yarnpkg.com/install.sh | bash`
 - [ ] [Homebrew](https://brew.sh) (for later use, e.g. `brew upgrade yarn`)
-- [ ] [Hyper](https://hyper.is) (see [.hyper](.hyper))
 - [ ] [Git access token](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token)
 - [ ] `git clone` a repo and sign in
 
