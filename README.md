@@ -3,7 +3,8 @@
 ## Installs
 - [ ] [Hyper](https://hyper.is) (see [.hyper](.hyper))
 - [ ] [VS Code](https://code.visualstudio.com)
-- [ ] ZSH (see [.zprofile](.zprofile))
+- [ ] `code` (In VS Code, `CMD + Shift + P`, search "shell" and use install `code` command)
+- [ ] ZSH (see [.zshrc](.zshrc))
 - [ ] Xcode (App Store)
 - [ ] [Xcode dev tools](https://developer.apple.com/download/more) `xcode-select --install` (includes `git`)
 - [ ] [Yarn](https://yarnpkg.com) `curl -o- -L https://yarnpkg.com/install.sh | bash`
