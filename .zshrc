@@ -9,6 +9,7 @@ alias dev="cd ~/Dev"
 alias zs="code ~/.zshrc"
 alias reloadzs="source ~/.zshrc"
 alias c="code ."
+alias hype="code ~/.hyper.js"
 
 # GIT
 alias gaa="git add -A"
