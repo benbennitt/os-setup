@@ -1,0 +1,25 @@
+{
+    "workbench.startupEditor": "welcomePage",
+    "editor.fontSize": 15,
+    "editor.tabSize": 2,
+    "editor.detectIndentation": false,
+    "editor.colorDecorators": false,
+    "explorer.confirmDragAndDrop": false,
+    "window.zoomLevel": -1,
+    "editor.inlineSuggest.enabled": false,
+    "editor.snippetSuggestions": "none",
+    "editor.bracketPairColorization.enabled": false,
+    "editor.inlayHints.enabled": "off",
+    "editor.occurrencesHighlight": false,
+    "editor.parameterHints.cycle": false,
+    "editor.parameterHints.enabled": false,
+    "editor.suggest.matchOnWordStartOnly": false,
+    "editor.matchBrackets": "never",
+    "editor.guides.highlightActiveBracketPair": false,
+    "editor.guides.bracketPairsHorizontal": false,
+    "javascript.validate.enable": false,
+    "workbench.colorTheme": "Abyss",
+    "workbench.colorCustomizations": {
+      "editor.selectionBackground": "#431c9e"
+    }
+}
