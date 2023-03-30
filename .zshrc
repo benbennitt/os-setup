@@ -1,8 +1,11 @@
 # See bottom of file for setting up ZSH
 
 # CONFIG
-export EDITOR="code -w"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export VISUAL="code -w"
+export EDITOR="$VISUAL"
+export GIT_EDITOR="$VISUAL"
 
 # GENERAL
 alias dev="cd ~/Dev"
