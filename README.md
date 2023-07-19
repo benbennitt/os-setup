@@ -1,6 +1,22 @@
 # New computer setup
 
-## Installs
+## General
+- [ ] Chrome
+- [ ] Slack
+- [ ] Spotify
+- [ ] Dropbox
+- [ ] Password
+- [ ] Zight
+- [ ] Hand Mirror
+- [ ] Numi
+- [ ] Speed up screenshots: CMD + Shift + 5 → Options → Uncheck "Show floating thumbnail"
+
+## Design
+- [ ] Figma
+- [ ] ImageOptim
+- [ ] Icon Slate
+
+## Dev
 - [ ] [Hyper](https://hyper.is) (see [.hyper](.hyper))
 - [ ] [VS Code](https://code.visualstudio.com)
 - [ ] Setup `code` CLI (In VS Code, `CMD + Shift + P`, search "shell" and use install `code` command)
