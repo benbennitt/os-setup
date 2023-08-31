@@ -25,29 +25,28 @@ alias gco="git checkout"
 alias gbl="git branch"
 alias gbdd="git branch -D"
 alias gbup="git branch -u"
-alias guppo="git push --set-upstream origin"
 alias gc="git commit -a -m"
 alias gcm="git commit -m"
 alias gcc="git commit"
 alias gca="git commit --amend"
 alias gcan="git commit --amend --no-edit"
 alias gp="git pull"
-alias gpom="git pull origin master"
-alias gcom="git checkout master"
-alias upm="git checkout master && git pull origin master"
+alias gpom="git pull origin main"
+alias gcom="git checkout main"
+alias upm="git checkout main && git pull origin main"
 alias gpick="git cherry-pick"
 alias gbf="git branch | grep"
 
 function gitup {
   BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-  if [ $BRANCH_NAME != "master" ]; then
+  if [ $BRANCH_NAME != "main" ]; then
     git push origin $BRANCH_NAME && git branch -u origin/$BRANCH_NAME
   fi
 }
 
 function gitforce {
   BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
-  if [ $BRANCH_NAME != "master" ]; then
+  if [ $BRANCH_NAME != "main" ]; then
     git push --force-with-lease origin $BRANCH_NAME
   fi
 }
@@ -128,4 +127,3 @@ function parseCSV () {
 # Ruby Version Manager (RVM)
 # Load RVM into a shell session as a function
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
