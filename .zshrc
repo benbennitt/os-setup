@@ -1,20 +1,14 @@
-# See bottom of file for setting up ZSH
-
-# CONFIG
-eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export VISUAL="code -w"
-export EDITOR="$VISUAL"
-export GIT_EDITOR="$VISUAL"
-
-# GENERAL
+#::::::::::: GENERAL :::::::::::
 alias dev="cd ~/Dev"
 alias zs="code ~/.zshrc"
 alias reloadzs="source ~/.zshrc"
 alias c="code ."
 alias hype="code ~/.hyper.js"
+alias games="cd ~/Dev/brain-power-games"
+alias bridge="cd ~/Dev/bridge"
 
-# GIT
+
+#::::::::::: GIT :::::::::::
 alias gaa="git add -A"
 alias gs="git status -b -s"
 alias gl="git log --pretty=\"%h | %ad | %an | %s\" --date=short"
@@ -37,6 +31,7 @@ alias upm="git checkout main && git pull origin main"
 alias gpick="git cherry-pick"
 alias gbf="git branch | grep"
 
+# Set remote origin for a new branch
 function gitup {
   BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
   if [ $BRANCH_NAME != "main" ]; then
@@ -44,6 +39,7 @@ function gitup {
   fi
 }
 
+# Force push (unless main branch)
 function gitforce {
   BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
   if [ $BRANCH_NAME != "main" ]; then
@@ -51,6 +47,9 @@ function gitforce {
   fi
 }
 
+# Change previous commit's hash without changes
+# and force push (similar to `gitempty` below but
+# without adding an empty commit to history)
 function gitrehash {
   chmod +x README.md
   git add README.md
@@ -62,29 +61,29 @@ function gitrehash {
   gitforce
 }
 
+# Submit empty commit, e.g. gitempty "Rerun CI tests"
 function gitempty {
   git commit --allow-empty -m "$1"
 }
 
+# Delete branches matching, e.g. gitdeleteall fix
 function gitdeleteall {
   git branch -D `git branch | grep "$1"`
 }
 
+
 #::::::::::: UTILITIES :::::::::::
-# Take a screenshot every N seconds
-# Example: timelapse 20
+# Take a screenshot every N seconds, e.g. timelapse 20
 function timelapse() {
   while :; do; echo "📸" $(date +%H:%M:%S); screencapture -x ~/Screenshots/timelapse/$(date +%s).png; sleep $1; done
 }
 
-# Check status for a URL
-# Example: status https://google.com
+# Check status for a URL, e.g. status https://google.com
 function status () {
   curl -s -o /dev/null -w "%{http_code}\n" $1
 }
 
-# Check status for a CSV of URLs
-# Example: statusAll file.csv
+# Check status for a CSV of URLs, e.g. statusAll file.csv
 function statusAll () {
   while IFS=, read -r col1 col2
   do
@@ -93,8 +92,7 @@ function statusAll () {
   done < $1
 }
 
-# Read out CSV data
-# Example: parseCSV file.csv
+# Read out CSV data, e.g. parseCSV file.csv
 function parseCSV () {
   while IFS=, read -r col1 col2
   do
@@ -102,7 +100,40 @@ function parseCSV () {
   done < $1
 }
 
-#::::::::::: SETUP :::::::::::
+
+#::::::::::: SYSTEM :::::::::::
+# General
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export VISUAL="code -w"
+export EDITOR="$VISUAL"
+export GIT_EDITOR="$VISUAL"
+
+# Homebrew; multiple on Apple Silicon
+if [ "$(arch)" = "arm64" ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)" # Legacy
+else
+    eval "$(/usr/local/bin/brew shellenv)" # Rosetta
+fi
+
+# Python
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Node
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Ruby
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init - zsh)"
+
+# GEM
+# export GEM_HOME="$HOME/.gem"
+
+
+#::::::::::: ZSH SETUP :::::::::::
 # 1. Create: `touch ~/.zshrc`
 # 2. Open: `open ~/.zshrc`
 # 3. Paste [.zshrc](./.zshrc) contents
@@ -115,15 +146,7 @@ function parseCSV () {
 # If new shells don't load this config, you may need to add them
 # to `.bash_profile` or `.bashrc` (or change default shell to zsh)
 
+
 #::::::::::: LEGACY :::::::::::
 # alias fixcam="sudo killall VDCAssistant;sudo killall AppleCameraAssistant"
 # alias fixnotis="sudo killall NotificationCenter"
-
-# Node Version Manager (NVM)
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Ruby Version Manager (RVM)
-# Load RVM into a shell session as a function
-# [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
