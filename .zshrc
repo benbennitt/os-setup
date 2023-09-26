@@ -8,6 +8,10 @@ alias games="cd ~/Dev/brain-power-games"
 alias bridge="cd ~/Dev/bridge"
 
 
+#::::::::::: WORK :::::::::::
+alias postgres="pg_ctl -D /opt/homebrew/var/postgres -l logfile start && pg_ctl status -D /opt/homebrew/var/postgres"
+
+
 #::::::::::: GIT :::::::::::
 alias gaa="git add -A"
 alias gs="git status -b -s"

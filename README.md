@@ -45,6 +45,15 @@
 - [ ] [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en)
 - [ ] [Vercel CLI](https://vercel.com) `yarn global add vercel`
 
+<details>
+  <summary>Automating SSH passphrase entry</summary>
+
+  1. Start SSH Agent ```eval `ssh-agent -s` ```
+  2. Prompt to add SSH key `ssh-add ~/.ssh/id_rsa_key`
+  3. Confirm key was added `ssh-add -l`
+  4. Connect to Git `ssh git.example.com`
+</details>
+
 ## Reference
 - https://github.com/nicolashery/mac-dev-setup
 - https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/set-up-git
