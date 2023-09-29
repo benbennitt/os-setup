@@ -114,15 +114,17 @@ export GIT_EDITOR="$VISUAL"
 
 # Homebrew; multiple on Apple Silicon
 if [ "$(arch)" = "arm64" ]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)" # Legacy
+  eval "$(/opt/homebrew/bin/brew shellenv)" # Legacy
 else
-    eval "$(/usr/local/bin/brew shellenv)" # Rosetta
+  eval "$(/usr/local/bin/brew shellenv)" # Rosetta
 fi
 
 # Python
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+if (( $+commands[pyenv] )); then
+  eval "$(pyenv init -)"
+fi
 
 # Node
 export NVM_DIR="$HOME/.nvm"
@@ -131,7 +133,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # Ruby
 export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init - zsh)"
+if (( $+commands[rbenv] )); then
+  eval "$(rbenv init - zsh)"
+fi
 
 # GEM
 # export GEM_HOME="$HOME/.gem"
