@@ -49,9 +49,9 @@
   <summary>Automating SSH passphrase entry</summary>
 
   1. Start SSH Agent ```eval `ssh-agent -s` ```
-  2. Prompt to add SSH key `ssh-add ~/.ssh/id_rsa_key`
+  2. Prompt to add SSH key `ssh-add ~/.ssh/id_rsa_key` (or `ssh-add ~/.ssh/id_ed25519`)
   3. Confirm key was added `ssh-add -l`
-  4. Connect to Git `ssh git.example.com`
+  4. Test connection  `ssh git@github.com` (or `ssh git@gitlab.com`)
 </details>
 
 ## Reference
