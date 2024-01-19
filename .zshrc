@@ -5,11 +5,6 @@ alias reloadzs="source ~/.zshrc"
 alias c="code ."
 alias hype="code ~/.hyper.js"
 alias games="cd ~/Dev/brain-power-games"
-alias bridge="cd ~/Dev/bridge"
-
-
-#::::::::::: WORK :::::::::::
-alias postgres="pg_ctl -D /opt/homebrew/var/postgres -l logfile start && pg_ctl status -D /opt/homebrew/var/postgres"
 
 
 #::::::::::: GIT :::::::::::
@@ -34,6 +29,11 @@ alias gcom="git checkout main"
 alias upm="git checkout main && git pull origin main"
 alias gpick="git cherry-pick"
 alias gbf="git branch | grep"
+
+# Quick commit
+function gitgo {
+  git add -A && git commit -m "Progress" && git push
+}
 
 # Set remote origin for a new branch
 function gitup {
@@ -77,6 +77,21 @@ function gitdeleteall {
 
 
 #::::::::::: UTILITIES :::::::::::
+function videoToGIF () {
+  width="800"
+  size="scale=$width:-1" # keep aspect ratio
+  tones="colorbalance=bs=0.1:bm=0.1:bh=0.1" # cooler color tones, b=blue and smh being shadows, midtones and highlights
+  ffmpeg -i $1 -filter_complex "[0:v] $tones,fps=12,$size,split [a][b];[a] palettegen [p];[b][p] paletteuse" $1$(date +%s).gif
+
+  # Other references...
+  # Simple: ffmpeg -i input.mov ouput.gif
+  # Reduce colors: ffmpeg -i input.mov -pix_fmt rgb24 ouput.gif
+  # Generate 10 PNG frames: ffmpeg -i input.mov -r 10 ./pngs/ouput%04d.png
+  # Convert PNGs to GIFs: sips -s format gif ./pngs/*.png --out ./gifs
+  # Combine GIFs into GIF: gifsicle ./gifs/*.gif > ouput.gif
+  # Modify GIF: gifsicle --optimize=3 --delay=10 input.gif > ouput.gif
+}
+
 # Take a screenshot every N seconds, e.g. timelapse 20
 function timelapse() {
   while :; do; echo "📸" $(date +%H:%M:%S); screencapture -x ~/Screenshots/timelapse/$(date +%s).png; sleep $1; done
