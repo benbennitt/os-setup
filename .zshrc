@@ -5,34 +5,38 @@ alias reloadzs="source ~/.zshrc"
 alias c="code ."
 alias hype="code ~/.hyper.js"
 alias games="cd ~/Dev/brain-power-games"
+alias python=python3
 
 
 #::::::::::: GIT :::::::::::
 alias gaa="git add -A"
 alias gs="git status -b -s"
-alias gl="git log --pretty=\"%h | %ad | %an | %s\" --date=short"
+alias gl="git log --pretty='%h | %ad | %an | %s' --date=short -n 15"
 alias gd="git diff"
-alias gpho="git push origin"
 alias gphf="git push --force-with-lease"
 alias gco="git checkout"
 alias gbl="git branch"
 alias gbdd="git branch -D"
 alias gbup="git branch -u"
-alias gc="git commit -a -m"
+alias gc="git commit -A -m"
 alias gcm="git commit -m"
-alias gcc="git commit"
 alias gca="git commit --amend"
 alias gcan="git commit --amend --no-edit"
-alias gp="git pull"
-alias gpom="git pull origin main"
-alias gcom="git checkout main"
-alias upm="git checkout main && git pull origin main"
-alias gpick="git cherry-pick"
-alias gbf="git branch | grep"
+alias upmain="git checkout main && git pull origin main"
+alias gbf="git branch | grep" # gbf fix-
 
-# Quick commit
-function gitgo {
-  git add -A && git commit -m "Progress" && git push
+# Add all and commit (use instead of gaa + gcm)
+alias gc="git add -A && git commit -m" # e.g. gc "Update xyz"
+
+# Add all and amend previous (use instead of gaa + gcan)
+alias gam="git add -A && git commit --amend --no-edit"
+
+# Yolo commit & push
+alias golo="git add -A && git commit -m 'Progress' && git push"
+
+# Delete branches matching, e.g. gbdall branchName
+function gbdall {
+  git branch -D `git branch | grep "$1"`
 }
 
 # Set remote origin for a new branch
@@ -65,14 +69,9 @@ function gitrehash {
   gitforce
 }
 
-# Submit empty commit, e.g. gitempty "Rerun CI tests"
+# Add empty commit, e.g. gitempty "Rerun CI tests"
 function gitempty {
   git commit --allow-empty -m "$1"
-}
-
-# Delete branches matching, e.g. gitdeleteall fix
-function gitdeleteall {
-  git branch -D `git branch | grep "$1"`
 }
 
 
@@ -90,6 +89,11 @@ function videoToGIF () {
   # Convert PNGs to GIFs: sips -s format gif ./pngs/*.png --out ./gifs
   # Combine GIFs into GIF: gifsicle ./gifs/*.gif > ouput.gif
   # Modify GIF: gifsicle --optimize=3 --delay=10 input.gif > ouput.gif
+}
+
+# md5hash string
+function md5hash () {
+  echo -n $1 | md5
 }
 
 # Take a screenshot every N seconds, e.g. timelapse 20
@@ -169,7 +173,16 @@ fi
 # If new shells don't load this config, you may need to add them
 # to `.bash_profile` or `.bashrc` (or change default shell to zsh)
 
-
 #::::::::::: LEGACY :::::::::::
 # alias fixcam="sudo killall VDCAssistant;sudo killall AppleCameraAssistant"
 # alias fixnotis="sudo killall NotificationCenter"
+# Added by Windsurf
+export PATH="/Users/bennitt/.codeium/windsurf/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/Users/bennitt/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
